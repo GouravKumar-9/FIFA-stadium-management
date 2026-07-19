@@ -44,12 +44,13 @@ Render is a modern cloud hosting platform suitable for hosting Node.js web appli
    - **Region**: Select a region close to your target users.
    - **Branch**: `main` (or your active release branch)
    - **Root Directory**: Leave blank (`.`) to use the workspace root.
-   - **Build Command**: `npm install && npm run build`
+   - **Build Command**: `npm install --include=dev && npm run build`
    - **Start Command**: `npm run start`
 
 3. **Set Environment Variables**:
    - Click the **Environment** tab.
    - Add `NODE_ENV` = `production`
+   - Add `NPM_CONFIG_PRODUCTION` = `false` (Render skips devDependencies by default, this ensures Vite/TypeScript are installed for the build)
    - Add `GROQ_API_KEY` = `your_actual_groq_api_key`
    - Render handles the `PORT` variable automatically.
 
